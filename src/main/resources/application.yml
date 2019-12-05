@@ -1,11 +1,15 @@
 server:
   port: 8082
+  servlet:
+    context-path: /test
+
+
 
 person:
   lastName: hello
   age: 18
   boss: false
-  birth: 2018-10-22
+  birth: 2018/10/22
   maps: {k1: v1,k2: 12}
   lists:
     - lisi

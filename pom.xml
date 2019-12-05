@@ -16,6 +16,8 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <mysql-connector-java.version>8.0.13</mysql-connector-java.version>
     </properties>
 
     <dependencies>
@@ -31,17 +33,41 @@
             <optional>true</optional>
         </dependency>
 
+        <!--配置热更新-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <!-- optional=true, 依赖不会传递, 该项目依赖devtools; 之后依赖boot项目的项目如果想要使用devtools, 需要重新引入 -->
+            <optional>true</optional>
+        </dependency>
+
+        <!-- 引入jdbc 依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <!-- 引入 mysql 数据库连接依赖-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-connector-java.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+
+        <!--单元测试-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-            <!--<exclusions>-->
+            <!--<exclusions> 不注释@RunWith 注解不能使用 -->
                 <!--<exclusion>-->
                     <!--<groupId>org.junit.vintage</groupId>-->
                     <!--<artifactId>junit-vintage-engine</artifactId>-->
                 <!--</exclusion>-->
             <!--</exclusions>-->
         </dependency>
+
     </dependencies>
 
     <build>
